@@ -28,21 +28,21 @@ Facter.add(:pe_tuning, :type => :aggregate) do
           'java_args'                  => {
             "Xmx" => "#{(512*(processors['count'].to_i))+512}m", # 512 per jruby + 512 extra
             "Xms" => "#{(512*(processors['count'].to_i))+512}m"
-          }.to_json
+          }
         },
         'compile' => {
           'jruby_max_active_instances' => processors['count'].to_i, # Number of CPUs
           'java_args'                  => {
             "Xmx" => "#{(512*(processors['count'].to_i))+512}m", # 512 per jruby + 512 extra
             "Xms" => "#{(512*(processors['count'].to_i))+512}m"
-          }.to_json
+          }
         },
         'mom'  => {
           'jruby_max_active_instances' => mom_jrubies,
           'java_args'                  => {
             "Xmx" => "#{(512*mom_jrubies)+1024}m", # 512 per jruby + 1G extra
             "Xms" => "#{(512*mom_jrubies)+1024}m"
-          }.to_json
+          }
         }
       }
     }
@@ -56,21 +56,21 @@ Facter.add(:pe_tuning, :type => :aggregate) do
           'java_args'                  => {
             "Xmx" => "512m",
             "Xms" => "512m"
-          }.to_json
+          }
         },
         'compile' => {
             'command_processing_threads' => (processors['count'].to_i/3)+1, # One cpt per 3 jrubies, rounding up
             'java_args'                  => {
               "Xmx" => "512m",
               "Xms" => "512m"
-            }.to_json
+            }
         },
         'mom'  => {
           'jruby_max_active_instances' => processors['count'].to_i, # As many as possible. This is the MoM's primary job
           'java_args'                  => {
             "Xmx" => "1024m", # Hardcode to 1Gb for now PuppetDB is the majority
             "Xms" => "1024m"  # of work that MoMs do
-          }.to_json
+          }
         }
       }
     }
@@ -83,13 +83,13 @@ Facter.add(:pe_tuning, :type => :aggregate) do
           'java_args' => {
             "Xmx" => "512m",
             "Xms" => "512m"
-          }.to_json
+          }
         },
         'mom_optimal'  => {
           'java_args' => {
             "Xmx" => "512m",
             "Xms" => "512m"
-          }.to_json
+          }
         }
       }
     }
@@ -103,20 +103,20 @@ Facter.add(:pe_tuning, :type => :aggregate) do
           'java_args' => {
             "Xmx" => "1024m",
             "Xms" => "1024m"
-          }.to_json
+          }
         },
         'compile' => {
           'java_args' => {
             "Xmx" => "1024m",
             "Xms" => "1024m"
-          }.to_json
+          }
         },
         'mom'  => {
           'global_concurrent_compiles' => (processors['count'].to_i)*2, # A complete guess
           'java_args' => {
             "Xmx" => "1024m",
             "Xms" => "1024m"
-          }.to_json
+          }
         }
       }
     }
