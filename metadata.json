@@ -1,0 +1,12 @@
+{
+  "name": "dylanratcliffe-pe_tuning",
+  "version": "0.1.0",
+  "author": "dylanratcliffe",
+  "summary": "Custom facts for determining optimal tuning values for Puppet Enterprise.",
+  "license": "Apache-2.0",
+  "source": "https://github.com/dylanratcliffe/pe_tuning",
+  "project_page": "https://github.com/dylanratcliffe/pe_tuning",
+  "issues_url": "https://github.com/dylanratcliffe/pe_tuning/issues",
+  "dependencies": [],
+  "data_provider": null
+}
