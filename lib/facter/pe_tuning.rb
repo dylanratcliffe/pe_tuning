@@ -95,9 +95,9 @@ Facter.add(:pe_tuning, :type => :aggregate) do
     }
   end
 
-  chunk(:orchestration) do
+  chunk(:orchestrator) do
     {
-      'orchestration' => {
+      'orchestrator' => {
         'monolithic' => {
           'global_concurrent_compiles' => processors['count'].to_i,
           'java_args' => {
