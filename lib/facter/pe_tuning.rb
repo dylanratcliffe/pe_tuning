@@ -13,7 +13,11 @@ Facter.add(:pe_tuning, :type => :aggregate) do
     file_sync_conf = Hocon.load("/etc/puppetlabs/puppetserver/conf.d/file-sync.conf")
     # Get the number of file-sync consumers and therefor infer the number of
     # compile masters
-    fs_client_count = file_sync_conf['file-sync']['client-certnames'].count
+    if file_sync_conf['file-sync']['client-certnames']
+      fs_client_count = file_sync_conf['file-sync']['client-certnames'].count
+    else
+      fs_client_count = 1
+    end
     compile_masters_per_jruby = 6
     mom_jrubies = (fs_client_count/compile_masters_per_jruby) + 1
 
